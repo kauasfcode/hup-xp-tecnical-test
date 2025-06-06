@@ -15,22 +15,25 @@ export class ReviewController {
         private readonly updateReviewService: UpdateReviewService
         
     ){}
-
+    //Responsible for creating a review 
     @Post("")
     async postReview(@Body() review: IReviewEntity):Promise<Review> {
         return await this.createReviewService.execute(review)
     }
-
+    //Responsible for getting reviews by book
     @Get(':bookId')
     async getReviewsByBookId(@Param('bookId') bookId: string): Promise<IReviewEntity[]> {
         return this.readReviewByBookIdService.getReviewsByBookId(bookId);
     }
     
+
+    //Responsible for updating a single review
      @Patch(':id')
     async updateReview(@Param('id') id: string, @Body() body: Partial<IReviewEntity>){
         return this.updateReviewService.execute(id, body);
     }
 
+    //Deleted a review when requested
     @Delete(':id')
     @HttpCode(HttpStatus.NO_CONTENT)
     async deleteReview(@Param('id') id: string): Promise<void>{

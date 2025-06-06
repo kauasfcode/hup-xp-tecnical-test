@@ -4,6 +4,8 @@ import { Model } from 'mongoose';
 import { Review, ReviewDocument } from '../schema/review.schema';
 import { IReviewEntity } from '../interfaces/IReviewEntity';
 
+//Responsible for updating the review in database
+
 @Injectable()
 export class UpdateReviewRepository {
   constructor(

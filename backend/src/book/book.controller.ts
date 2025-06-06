@@ -18,32 +18,37 @@ export class BookController {
         private readonly topBooksService: TopBooksService
     ){}
 
+    //Responsible for create an book when receives a post request
     @Post("")
     async create(@Body() book: IBookEntity) : Promise<IBookEntity>{
         return this.createBookService.execute(book)
     }
+    //Endpoint for getting all books
     @Get("")
     async getAll(){
         return this.readBookService.execute()
     }
 
+    //Get top rated books, and specify a limit (max 10)
     @Get('top')
     async getTopBooks(@Query('limit') limit?: string) {
         const limitNumber = parseInt(limit ?? '10');
         return this.topBooksService.execute(limitNumber);
     }
         
+    //Finding book by id
     @Get(':id')
     async findById(@Param('id') id: string) {
         return this.readBookByIdService.execute(id);
     }   
 
+    //Responsible for updating book via patch request
     @Patch(':id')
     async update(@Param('id') id: string, @Body() book: Partial<IBookEntity>) {
         return this.updateBookService.execute(id, book);
     }
 
-
+    //Responsible for deleting a book
     @Delete(':id')
     async remove(@Param('id') id: string) {
         return this.deleteBookService.execute(id);

@@ -4,6 +4,8 @@ import { Model, Types } from 'mongoose';
 import { Review, ReviewDocument } from '../schema/review.schema';
 import { IReviewEntity } from '../interfaces/IReviewEntity';
 
+//Responsible for get the review by bood id in database
+
 @Injectable()
 export class ReviewByBookIdRepository {
   constructor(

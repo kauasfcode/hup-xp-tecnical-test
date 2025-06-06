@@ -1,6 +1,7 @@
-    export interface IReviewEntity{
-        _id: string;
-        comment: string;
-        rating: number;
-        bookId: string;
-    }
+    
+export interface IReviewEntity{
+    _id: string;
+    comment: string;
+    rating: number;
+    bookId: string;
+}

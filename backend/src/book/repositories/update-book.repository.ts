@@ -4,6 +4,8 @@ import { Book, BookDocument } from '../schema/book.schema';
 import { Model } from 'mongoose';
 import { IBookEntity } from '../interfaces/IBookEntity';
 
+//Responsible for updating book in database
+
 @Injectable()
 export class UpdateBookRepository {
   constructor(

@@ -5,6 +5,8 @@
  import { Book, BookDocument } from "../schema/book.schema";
  import { Model } from "mongoose";
  
+ //Responsible for get all books in database
+ 
  @Injectable()
  export class ReadBookRepository {
    constructor(

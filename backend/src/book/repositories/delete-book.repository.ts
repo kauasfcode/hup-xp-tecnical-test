@@ -3,6 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Book, BookDocument } from '../schema/book.schema';
 import { Model } from 'mongoose';
 
+//Responsible for deleting a book in database
+
 @Injectable()
 export class DeleteBookRepository {
   constructor(
@@ -12,4 +14,4 @@ export class DeleteBookRepository {
   async delete(id: string) {
     return this.bookModel.findByIdAndDelete(id).exec();
   }
-}
+}   
