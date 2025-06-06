@@ -16,5 +16,4 @@ export class CreateBookRepository{
             await createdBook.save();
             return createdBook.toObject()
         }
-
 }
