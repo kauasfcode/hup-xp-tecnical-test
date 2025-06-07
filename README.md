@@ -1,73 +1,87 @@
-# Tech-Assessment – Book Reviews Platform
+Project Documentation
+Overview
+This is a full-stack application with automated end-to-end testing, containerized deployment, and database seeding capabilities. The project consists of a backend API and frontend application, both designed to work together seamlessly through Docker Compose.
 
-**Goal**  
-Build a small “Book Reviews” platform (CRUD books + reviews, plus an endpoint that returns the top-rated books).
-
-| Stack (mandatory) | Why |
-|-------------------|-----|
-| NestJS + MongoDB  | API, data layer & aggregation |
-| Next.js (App Router) | UI & SSR |
-| React Query       | Data fetching / cache |
-| Tailwind CSS      | Styling |
-
-> **Time-box:** aim for **4-8 h** of focused work.  
-> When time is up, push what you have — unfinished is OK, but document what’s missing.
-
----
-
-## 1. What you must deliver
-
-| Area | Minimum requirements |
-|------|----------------------|
-| **Backend** | *Connect to MongoDB* via env var<br>*Models*: `Book`, `Review` (rating 1-5)<br>*CRUD* endpoints for both entities (`/books`, `/books/:id/reviews`)<br>*Aggregation*: `GET /books/top?limit=10` returns avgRating + reviewCount, sorted desc<br>*Tests*: at least **one** e2e test hitting `/books/top` |
-| **Frontend** | `/books` page listing the top books (uses React Query)<br>Book detail page showing reviews and a form to add a review (optimistic update welcome)<br>Responsive UI with Tailwind |
-| **DX / Ops** | Clear local-dev instructions (README or Makefile)<br>`.env.example` with all needed vars<br>Lint + format commands<br>(Optional) Docker setup |
-
----
-
-## 2. Local setup expected by reviewers
-
-```bash
-pnpm install          # monorepo or multiple projects — you choose
-pnpm dev              # should start both backend and frontend
-# backend on :3001, frontend on :3000 is a common pattern
-```
-
-If you rely on Docker (e.g. docker compose up mongo), document it.
-
-⸻
-
-## 3. Submission guidelines
-1.	Fork this repo, build on main.
-2.	Open a pull request to your own fork when finished. In the PR description include:
-  - (i) What is done / not done,
-  - (ii)	How to run tests and
-  - (iii)	Any trade-offs or shortcuts
-3.	Do not open a PR against the original repo.
-
-⸻
-
-## 4. Evaluation rubric
-
-Criterion	Weight
-
-- Correctness & tests	30 %
-- Code quality / structure	20 %
-- Data modelling & validation	15 %
-- Aggregation query efficiency	10 %
-- Frontend UX & accessibility	15 %
-- Documentation	10 %
+Project Structure
+├── backend/          # Backend API application
+├── frontend/         # Frontend application
+├── docker-compose.yaml   # Docker orchestration configuration
+└── README.md         # Project documentation
 
 
-⸻
+Quick Start
+Prerequisites
+Docker
+Docker Compose
 
-## 5. Constraints & tips
+Running the Application
+To start the entire application stack with pre-populated database:
 
--	TypeScript everywhere.
--	Keep third-party libs minimal (testing & dev-tools are fine).
--	Commit early & often — we read history.
--	Feel free to use dev-containers / Codespaces; just explain how.
+docker-compose up
 
-⸻
+This single command will:
+Build and start all services (backend, frontend, database)
+Automatically populate the database with seed data
+Set up the complete development environment
 
-Good luck 🚀
+The application will be ready to use once all containers are running.
+
+Features
+🧪 End-to-End Testing
+Comprehensive E2E test suite implemented
+Tests cover critical user workflows
+Automated testing pipeline ready
+
+🐳 Containerized Deployment
+Complete Docker Compose setup
+Multi-service orchestration
+Development environment consistency
+Easy deployment and scaling
+
+🌱 Database Seeding
+Automatic database population on startup
+Pre-configured test data
+Consistent development environment
+Ready-to-use application state
+
+Architecture
+Backend
+API server handling business logic
+Database integration
+Seed scripts for data population
+E2E test configuration
+
+Frontend
+User interface application
+Integration with backend API
+E2E test implementation
+Responsive design components
+
+Development Workflow
+Initial Setup
+Clone the repository
+Ensure Docker and Docker Compose are installed
+Run docker-compose up to start all services
+
+Making Changes
+Make your code changes in the respective backend/ or frontend/ directories
+The containers will automatically rebuild as needed
+Run tests to ensure functionality
+
+Testing
+E2E tests are configured for both  backend
+Tests run in containerized environment
+Consistent test data through seeding
+
+Services Configuration
+The docker-compose.yaml orchestrates multiple services:
+Backend Service: API server with database connectivity
+Frontend Service: Web application interface
+Database Service: Data persistence layer
+Seed Service: Database population utility
+
+Database
+The application includes automated database seeding that runs on startup, ensuring:
+Consistent development data
+Ready-to-test application state
+Reproducible environments across different setups
