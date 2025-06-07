@@ -83,7 +83,7 @@ The application will be ready to use once all containers are running.
 3. Run the following command to start all services:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 ### Making Changes
