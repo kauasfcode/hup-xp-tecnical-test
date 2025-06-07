@@ -25,7 +25,7 @@ This is a full-stack application with automated end-to-end testing, containerize
 To start the entire application stack with pre-populated database:
 
 ```bash
-docker-compose up
+docker  compose up
 ```
 
 This single command will:
