@@ -79,7 +79,7 @@ export default function ReviewForm() {
 
         {createReview.isSuccess && (
           <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
-            <p className="text-sm text-green-600">Erro sending avaliation!</p>
+            <p className="text-sm text-green-600">Sucess sending avaliation!</p>
           </div>
         )}
       </form>

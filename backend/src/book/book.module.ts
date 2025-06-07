@@ -24,7 +24,7 @@ import { UpdateBookRepository } from './repositories/update-book.repository';
   ],
   controllers: [BookController],
   providers: [CreateBookService,
-     ReadBooksService, DeleteBookService, ReadBookByIdService, UpdateBookService, TopBooksService , ReadBookByIdRepository, DeleteBookRepository ,ReadBookRepository, 
+     ReadBooksService, DeleteBookService, CreateBookService, ReadBookByIdService, UpdateBookService, TopBooksService , ReadBookByIdRepository, DeleteBookRepository ,ReadBookRepository, 
      CreateBookRepository, GetTopBooksRepository, UpdateBookRepository]
 })
 export class BookModule {}

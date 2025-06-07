@@ -6,6 +6,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Review, ReviewSchema } from './schema/review.schema';
 import { ReadReviewByBookIdService } from './service/read-reviews-by-book-id.service';
 import { ReviewByBookIdRepository } from './repositories/read-reviews-by-book-id.repository';
+import { DeleteReviewService } from './service/delete-review.service';
+import { UpdateReviewService } from './service/update-review.service';
+import { DeleteReviewRepository } from './repositories/delete-review.repository';
+import { UpdateReviewRepository } from './repositories/update-review.repository';
 
 @Module({imports: [
     MongooseModule.forFeature([
@@ -13,6 +17,6 @@ import { ReviewByBookIdRepository } from './repositories/read-reviews-by-book-id
     ]),
   ],
   controllers: [ReviewController],
-  providers: [CreateReviewService, ReadReviewByBookIdService, ReviewByBookIdRepository, CreateReviewRepository]
+  providers: [CreateReviewService, DeleteReviewService, UpdateReviewService, ReadReviewByBookIdService, DeleteReviewService, UpdateReviewService ,ReviewByBookIdRepository, DeleteReviewRepository,UpdateReviewRepository, CreateReviewRepository]
 })
 export class ReviewModule {}

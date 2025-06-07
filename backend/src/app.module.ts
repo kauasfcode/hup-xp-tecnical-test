@@ -7,7 +7,7 @@ import { ReviewModule } from './review/review.module';
 
 @Module({
   imports: [BookModule,
-    MongooseModule.forRoot(''),
+    MongooseModule.forRoot(process.env.MONGO_URI!),
     ReviewModule
   ],
   controllers: [AppController],
