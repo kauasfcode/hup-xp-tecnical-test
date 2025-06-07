@@ -1,73 +1,37 @@
-# Tech-Assessment – Book Reviews Platform
+# Project Documentation
 
-**Goal**  
-Build a small “Book Reviews” platform (CRUD books + reviews, plus an endpoint that returns the top-rated books).
+## Overview
 
-| Stack (mandatory) | Why |
-|-------------------|-----|
-| NestJS + MongoDB  | API, data layer & aggregation |
-| Next.js (App Router) | UI & SSR |
-| React Query       | Data fetching / cache |
-| Tailwind CSS      | Styling |
+This is a full-stack application with automated end-to-end testing, containerized deployment, and database seeding capabilities. The project consists of a backend API and frontend application, both designed to work together seamlessly through Docker Compose.
 
-> **Time-box:** aim for **4-8 h** of focused work.  
-> When time is up, push what you have — unfinished is OK, but document what’s missing.
+## Project Structure
 
----
-
-## 1. What you must deliver
-
-| Area | Minimum requirements |
-|------|----------------------|
-| **Backend** | *Connect to MongoDB* via env var<br>*Models*: `Book`, `Review` (rating 1-5)<br>*CRUD* endpoints for both entities (`/books`, `/books/:id/reviews`)<br>*Aggregation*: `GET /books/top?limit=10` returns avgRating + reviewCount, sorted desc<br>*Tests*: at least **one** e2e test hitting `/books/top` |
-| **Frontend** | `/books` page listing the top books (uses React Query)<br>Book detail page showing reviews and a form to add a review (optimistic update welcome)<br>Responsive UI with Tailwind |
-| **DX / Ops** | Clear local-dev instructions (README or Makefile)<br>`.env.example` with all needed vars<br>Lint + format commands<br>(Optional) Docker setup |
-
----
-
-## 2. Local setup expected by reviewers
-
-```bash
-pnpm install          # monorepo or multiple projects — you choose
-pnpm dev              # should start both backend and frontend
-# backend on :3001, frontend on :3000 is a common pattern
+```
+├── backend/               # Backend API application  
+├── frontend/              # Frontend application  
+├── docker-compose.yaml    # Docker orchestration configuration  
+└── README.md              # Project documentation  
 ```
 
-If you rely on Docker (e.g. docker compose up mongo), document it.
+## Quick Start
 
-⸻
+### Prerequisites
 
-## 3. Submission guidelines
-1.	Fork this repo, build on main.
-2.	Open a pull request to your own fork when finished. In the PR description include:
-  - (i) What is done / not done,
-  - (ii)	How to run tests and
-  - (iii)	Any trade-offs or shortcuts
-3.	Do not open a PR against the original repo.
+- Docker
+- Docker Compose
 
-⸻
+### Running the Application
 
-## 4. Evaluation rubric
+To start the entire application stack with pre-populated database:
 
-Criterion	Weight
+```bash
+docker  compose up
+```
 
-- Correctness & tests	30 %
-- Code quality / structure	20 %
-- Data modelling & validation	15 %
-- Aggregation query efficiency	10 %
-- Frontend UX & accessibility	15 %
-- Documentation	10 %
+This single command will:
 
+- Build and start all services (backend, frontend, database)
+- Automatically populate the database with seed data
+- Set up the complete development environment
 
-⸻
-
-## 5. Constraints & tips
-
--	TypeScript everywhere.
--	Keep third-party libs minimal (testing & dev-tools are fine).
--	Commit early & often — we read history.
--	Feel free to use dev-containers / Codespaces; just explain how.
-
-⸻
-
-Good luck 🚀
+The application will be ready to use once all containers are running.
